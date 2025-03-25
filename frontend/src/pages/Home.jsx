@@ -35,19 +35,16 @@ const Home = () => {
             Bienvenido, <span className="username">{user.display_name}</span>!
           </h2>
         )}
-
 <iframe
-  title="Spotify Player"
-  style={{ 
-    borderRadius: '12px',
-    width: '100%',
-    height: '352px',
-    border: 'none'  // Añade esto para evitar bordes
-  }}
-  src={`https://open.spotify.com/embed/playlist/5whRa7GwJXffqiA4WuRwt1?utm_source=generator&access_token=${localStorage.getItem('spotify_token')}`}
+  title="Mi Playlist Personal"
+  src={`https://open.spotify.com/embed/playlist/5whRa7GwJXffqiA4WuRwt1?utm_source=generator`}
+  width="100%"
+  height="380"
+  frameBorder="0"
   allowFullScreen
   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-/>
+  loading="lazy"
+></iframe>
         <div className="playlists-section">
           {/* Lista de playlists */}
           <h3>Tus playlists</h3>

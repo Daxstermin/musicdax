@@ -19,7 +19,7 @@
     "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "passport": "^0.7.0",
-    "passport-spotify": "^3.0.0",
+    "passport-spotify": "^2.0.0",
     "pg": "^8.11.3"
   },
   "devDependencies": {

@@ -23,7 +23,7 @@ const Login = () => {
     <div className="login-container">
       <h1 className="app-title">MusicDax</h1>
       <a
-        href="http://localhost:5000/auth/spotify"
+        href="http://3.213.183.103:5000/auth/spotify"
         className="spotify-login-button"
       >
         <FaSpotify className="spotify-icon" />
