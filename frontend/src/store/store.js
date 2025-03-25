@@ -7,4 +7,8 @@ export default configureStore({
     player: playerReducer,
     auth: authReducer,
   },
+  middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware({
+      serializableCheck: false // Opcional para desarrollo
+    })
 });

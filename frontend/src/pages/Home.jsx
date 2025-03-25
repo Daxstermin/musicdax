@@ -21,7 +21,7 @@ const Home = () => {
       <header className="app-header">
         <div className="logo">
           <FaMusic className="music-icon" />
-          <h1>MusicDax</h1>
+		<h1>MusicDax</h1>
         </div>
         <button onClick={handleLogout} className="logout-button">
           <FaSignOutAlt /> Cerrar sesión
@@ -36,25 +36,34 @@ const Home = () => {
           </h2>
         )}
 
-        <div className="player-section">
-          {/* Aquí iría tu reproductor de música */}
-          <div className="player-placeholder">
-            <p>Reproductor de música integrado</p>
-            {token && (
-              <small className="token-info">
-                Autenticado correctamente (token: {token.substring(0, 10)}...)
-              </small>
-            )}
-          </div>
-        </div>
-
+<iframe
+  title="Spotify Player"
+  style={{ 
+    borderRadius: '12px',
+    width: '100%',
+    height: '352px',
+    border: 'none'  // Añade esto para evitar bordes
+  }}
+  src={`https://open.spotify.com/embed/playlist/5whRa7GwJXffqiA4WuRwt1?utm_source=generator&access_token=${localStorage.getItem('spotify_token')}`}
+  allowFullScreen
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+/>
         <div className="playlists-section">
           {/* Lista de playlists */}
           <h3>Tus playlists</h3>
           <div className="playlists-grid">
-            {/* Mapear playlists aquí */}
-            <div className="playlist-card">Playlist 1</div>
-            <div className="playlist-card">Playlist 2</div>
+<div className="playlist-card">
+  <iframe 
+    style={{ borderRadius: '12px' }} 
+    src="https://open.spotify.com/embed/playlist/5whRa7GwJXffqiA4WuRwt1?utm_source=generator" 
+    width="200%" 
+    height="452" 
+    frameBorder="0" 
+    allowFullScreen 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy"
+  ></iframe>
+</div>
           </div>
         </div>
       </main>
@@ -125,15 +134,6 @@ const Home = () => {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
           gap: 1rem;
-        }
-        .playlist-card {
-          background: #282828;
-          padding: 1rem;
-          border-radius: 4px;
-          transition: all 0.3s ease;
-        }
-        .playlist-card:hover {
-          background: #383838;
         }
       `}</style>
     </div>

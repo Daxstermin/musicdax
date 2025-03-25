@@ -6,24 +6,26 @@ import Home from './pages/Home';
 import { Navbar } from './components/Navbar';
 import './App.css';
 
-const App = () => {
-  const token = useSelector((state) => state.auth.token);
+function App() {
+  const token = useSelector(state => state.auth.token);
+  console.log('TOKEN:', token);
 
   return (
-    <Routes>
-      <Route 
-        path="/home" 
-        element={token ? <Home /> : <Navigate to="/login" replace />} 
-      />
-      <Route 
-        path="/login" 
-        element={!token ? <Login /> : <Navigate to="/home" replace />} 
-      />
-      <Route 
-        path="*" 
-        element={<Navigate to={token ? "/home" : "/login"} replace />} 
-      />
-    </Routes>
+    <div className="App">
+      <Router>
+        <Navbar /> {/* Si necesitas la barra de navegación */}
+        <Routes>
+          <Route 
+            path="/" 
+            element={token ? <Navigate to="/home" /> : <Login />} 
+          />
+          <Route 
+            path="/home" 
+            element={token ? <Home /> : <Navigate to="/" />} 
+          />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
