@@ -8,11 +8,11 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.token);
-  const user = useSelector((state) => state.auth.user); // Si guardas más datos del usuario
+  const user = useSelector((state) => state.auth.user);
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/login');
+    navigate('/home');
   };
 
   return (
